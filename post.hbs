@@ -1,0 +1,21 @@
+---
+layout: main.hbs
+pagination:
+    data: posts.data
+    size: 1
+    alias: post
+eleventyComputed:
+    title: "{{ post.title }}"
+permalink: "blog/{{ post.slug }}/"
+---
+
+<header>
+    <h1>{{ post.title }}</h1>
+    <p class="post-date">Published on {{ post.publish_date }}</p>
+    <blockquote class="post-excerpt">{{ post.excerpt }}</blockquote>
+    { post.featured_image|safe }}
+</header>
+
+<article>
+    {{{ post.content }}}
+</article>

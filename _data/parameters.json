@@ -1,0 +1,22 @@
+{
+    "name": "Omega",
+    "excerpt": "",
+    "socialMediaLinks": [
+        {
+            "name": "Email",
+            "uri": "mailto:hello@davidlozano.me"
+        },
+        {
+            "name": "Twitter",
+            "uri": "https://twitter.com/pdlozano"
+        },
+        {
+            "name": "Instagram",
+            "uri": "https://www.instagram.com/pd.lozano/"
+        },
+        {
+            "name": "Reddit",
+            "uri": "https://reddit.com/user/pdlozano"
+        }
+    ]
+}

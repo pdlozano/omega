@@ -1,0 +1,81 @@
+---
+layout: main.hbs
+title: Archive
+---
+
+<header>
+    <h1>Archives</h1>
+    <blockquote>TIP: Use CTRL+F to find something. If you're on mobile, use the "Find on Page" function.
+    </blockquote>
+
+    <form id="search-form">
+        <label for="search">Search</label>
+        <input type="text" id="search-input" name="search">
+        <input type="submit" value="Search" id="search-btn">
+    </form>
+</header>
+
+<article id="article">
+</article>
+
+<template id="archive-post-item">
+    <div class="archive-post">
+        <a class="archive-post-link">
+            <h2 class="archive-post-title"></h2>
+            <p class="archive-post-date">Published on <span class="archive-post-publish-date"></span></p>
+        </a>
+    </div>
+</template>
+
+<script>
+    const data = [{{#each posts.data}}
+        {
+            title: "{{this.title}}",
+            publish_date: "{{this.publish_date}}",
+            slug: "{{this.slug}}",
+        },
+    {{/each}}];
+    const input = document.getElementById("search-input");
+    const button = document.getElementById("search-btn");
+    const template = document.getElementById("archive-post-item");
+    const article = document.getElementById("article");
+
+    function toNode(data) {
+        const node = template.content.cloneNode(true);
+        const title = node.querySelector(".archive-post-title");
+        const link = node.querySelector("a");
+        const publishDate = node.querySelector(".archive-post-publish-date");
+        title.textContent = data.title;
+        publishDate.textContent = data.publish_date;
+        link.href = "/blog/" + data.slug + "/";
+
+        return node;
+    }
+
+    const fragment = document.createDocumentFragment();
+    data.map((item) => fragment.appendChild(toNode(item)));
+    article.innerHTML = "";
+    article.appendChild(fragment);
+
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        const value = input.value.toLowerCase();
+        const fragment = document.createDocumentFragment();
+
+        data.reduce((prev, item) => {
+            if (!item.title.toLowerCase().includes(value)) {
+                return 0;
+            }
+
+            const node = toNode(item);
+            fragment.appendChild(node);
+
+            return prev + 1;
+        }, 0);
+
+        article.innerHTML = "";
+        article.appendChild(fragment);
+    });
+</script>
+
+

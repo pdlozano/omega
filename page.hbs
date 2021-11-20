@@ -1,0 +1,18 @@
+---
+layout: main.hbs
+pagination:
+    data: pages.data
+    size: 1
+    alias: page
+eleventyComputed:
+    title: "{{ page.title }}"
+permalink: "{{ page.slug }}"
+---
+
+<header>
+    <h1>{{ page.title }}</h1>
+</header>
+
+<article>
+    {{{ page.content }}}
+</article>

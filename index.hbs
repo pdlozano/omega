@@ -3,6 +3,43 @@ layout: main.hbs
 title: Home
 ---
 
-<section class="project-links">
-    <h2>Projects</h2>
+<section>
+    <header class="index-intro">
+        <div class="index-site-meta">
+            <h1>Omega</h1>
+            <p>I have a firm belief that health must be based on science and not on trends that will shift the next
+                year. Unfortunately, that information is a bit difficult to find on the internet. I made this site
+                to change that.</p>
+        </div>
+
+        <div class="index-email-subscribe">
+            <form action="https://buttondown.email/api/emails/embed-subscribe/davidhermes" method="post"
+                  target="popupwindow" class="embeddable-buttondown-form index-email-form">
+                <h2 class="index-email-title">Subscribe to the email list</h2>
+                <p class="index-email-body">Get a monthly update to all posts I've published and a weekly email to
+                    interesting reads I've found.</p>
+                <label class="index-email-label" for="bd-email">Enter your email</label>
+
+                <div class="index-email-subscribe-inputs">
+                    <input class="index-email-email" type="email" name="email" placeholder="name@email.com">
+                    <input type="hidden" name="embed" value="1">
+                    <input class="index-email-submit" type="submit" value="Subscribe">
+                </div>
+            </form>
+        </div>
+    </header>
+</section>
+
+<section>
+    <h2>Latest Posts</h2>
+    <ol class="index-post-list">
+        {{#each posts.latest}}
+            <li class="index-post-list-item">
+                <a href="/blog/{{ this.slug }}/" class="index-post-list-link">
+                    <h3 class="index-post-title">{{ this.title }}</h3>
+                    <p class="index-post-excerpt">{{ this.excerpt }}</p>
+                </a>
+            </li>
+        {{/each}}
+    </ol>
 </section>
