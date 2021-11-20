@@ -1,30 +1,5 @@
 const { query } = require("../query");
-
-class Post {
-    constructor(data) {
-        this.title = data.title;
-        this.publish_date = this.formatDate(data.publishDate);
-        this.excerpt = data.excerpt;
-        this.image = {
-            uri: `${data.slug}.1`,
-            alt: data.featuredImageAltText,
-        };
-        this.content = data.content;
-        this.slug = data.slug;
-    }
-
-    formatDate(isoFormat) {
-        const date = new Date(isoFormat);
-        const months = [
-            "Jan", "Feb", "Mar",
-            "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep",
-            "Oct", "Nov", "Dec",
-        ];
-        const month = months[date.getMonth() - 1];
-        return `${date.getFullYear()} ${month} ${date.getDate()}`;
-    }
-}
+const { Post } = require("../helpers");
 
 
 module.exports = async function () {

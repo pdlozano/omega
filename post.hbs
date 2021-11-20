@@ -11,9 +11,9 @@ permalink: "blog/{{ post.slug }}/"
 
 <header>
     <h1>{{ post.title }}</h1>
-    <p class="post-date">Published on {{ post.publish_date }}</p>
+    <p class="post-date">Published on {{ post.date }}</p>
     <blockquote class="post-excerpt">{{ post.excerpt }}</blockquote>
-    { post.featured_image|safe }}
+    {{{ post.image.html }}}
 </header>
 
 <article>
