@@ -1,13 +1,5 @@
-const {query} = require("../query");
-
-class Page {
-    constructor(data) {
-        this.title = data.title;
-        this.content = data.content;
-        this.slug = data.slug;
-        this.date = new Date();
-    }
-}
+const { query } = require("../query");
+const { Page } = require("../helpers");
 
 module.exports = async function () {
     const data = await query(`{
