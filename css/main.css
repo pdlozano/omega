@@ -1,7 +1,15 @@
+@font-face {
+    font-family: 'Matatas One';
+    src: url('./matatas_one.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     font-size: 16px;
     --main-font: "Nunito", sans-serif;
     --header-font: "Urbanist", sans-serif;
+    --baybayin: "Matatas One", sans-serif;
 }
 
 html,
@@ -32,6 +40,10 @@ body {
     min-height: 100vh;
     flex-direction: column;
     line-height: 1.5;
+}
+
+.baybayin {
+    font-family: var(--baybayin);
 }
 
 a {
