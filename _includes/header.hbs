@@ -2,8 +2,7 @@
     <div class="site-meta"><a href="/">Omega <span class="baybayin">(Omega)</span></a></div>
 
     <nav class="site-header-nav">
-        <label for="hamburger">☰</label>
-        <input type="checkbox" id="hamburger">
+        <button id="hamburger">☰</button>
 
         <ul class="site-header-items">
             <li class="site-header-item"><a href="/about/">About</a></li>
@@ -11,3 +10,12 @@
         </ul>
     </nav>
 </header>
+
+<script>
+    const hamburger = document.getElementById("hamburger");
+
+    hamburger.addEventListener("click", (event) => {
+        event.preventDefault();
+        hamburger.classList.toggle("checked");
+    });
+</script>

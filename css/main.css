@@ -485,28 +485,26 @@ figcaption {
     font-weight: bold;
 }
 
-.site-header label {
+#hamburger {
     font-style: normal;
     font-size: 1.5rem;
     position: relative;
     z-index: 2;
-}
-
-.site-header label,
-.site-header input {
+    background: transparent;
+    border: none;
+    color: inherit;
     display: none;
 }
 
-.site-header input:checked ~ .site-header-items {
-    opacity: 1;
+#hamburger.checked ~ .site-header-items {
     visibility: visible;
+    display: block;
 }
 
 .site-header-items {
     display: flex;
     margin: 0;
     list-style: none;
-    transition: opacity 0.5s, visibility 0.5s;
 }
 
 .site-header-item {
@@ -558,13 +556,13 @@ figcaption {
         margin-top: 0.7rem;
     }
 
-    .site-header label {
+    #hamburger {
         display: inline-block;
     }
 
     .site-header-items {
+        display: none;
         flex-direction: column;
-        opacity: 0;
         visibility: collapse;
         padding: 4rem 4rem 0 2rem;
         line-height: 2.5;
@@ -590,6 +588,7 @@ figcaption {
         width: 100%;
     }
 }
+
 @media screen and (prefers-color-scheme: dark) {
     body {
         --background-color: hsl(0deg, 0%, 10%);
