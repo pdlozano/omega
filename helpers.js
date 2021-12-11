@@ -87,7 +87,7 @@ class Post extends Page {
             "Jul", "Aug", "Sep",
             "Oct", "Nov", "Dec",
         ];
-        const month = months[date.getMonth() - 1];
+        const month = months[date.getMonth()];
         return `${date.getFullYear()} ${month} ${date.getDate()}`;
     }
 }
